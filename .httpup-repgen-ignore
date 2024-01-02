@@ -1,0 +1,7 @@
+README.md
+\.git*
+*~
+\.*~
+^jornada7xx\-arm\.httpup
+*work
+*.pkg.*

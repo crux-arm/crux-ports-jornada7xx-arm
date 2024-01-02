@@ -9,7 +9,7 @@ CRUX-ARM ports overlay for HP Jornada 710/720/728
 
 To use these ports, download the `jornada7xx-arm.httpup` file to `/etc/ports`:
 ```
-$ sudo wget -P /etc/ports https://raw.githubusercontent.com/crux-arm/crux-ports-jornada7xx-arm/main/jornada7xx-arm.httpup
+$ sudo wget -P /etc/ports https://raw.githubusercontent.com/crux-arm/crux-ports-jornada7xx-arm/2.6/jornada7xx-arm.httpup
 $ sudo ports -u jornada7xx-arm
 ```
 

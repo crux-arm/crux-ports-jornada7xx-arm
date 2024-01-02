@@ -1,0 +1,5 @@
+d:kernel-jornada7xx
+f:e7371ba499ed433b1b6bd57517402ca3:kernel-jornada7xx/Pkgfile
+f:7472c5b390c0313040b9848d6a39ed13:kernel-jornada7xx/.footprint
+f:e00c6dff2ea0eb25d495eb2f4e7759e0:kernel-jornada7xx/config-3.16.81
+f:eb0fd480f7d9311042749d124a6b0938:kernel-jornada7xx/.md5sum
