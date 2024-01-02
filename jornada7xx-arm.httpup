@@ -1,0 +1,8 @@
+#
+# /etc/ports/jornada7xx-arm.httpup: CRUX-ARM ports overlay for HP Jornada 710/720/728
+#
+
+ROOT_DIR=/usr/ports/jornada7xx-arm
+URL=https://raw.githubusercontent.com/crux-arm/crux-ports-jornada7xx-arm/2.6/
+
+# End of file
