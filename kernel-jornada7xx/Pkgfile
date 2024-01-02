@@ -1,0 +1,39 @@
+# Description: Linux Kernel binaries for HP Jornada 710/720/780
+# URL: https://github.com/dev-null2019/jornada7xx-linux
+# Maintainer: CRUX-ARM System Team, devel at crux-arm dot nu
+# Depends on:
+
+name=kernel-jornada7xx
+version=3.16.81
+release=1
+
+source=(https://github.com/dev-null2019/jornada7xx-linux/archive/refs/heads/master.zip \
+  config-$version)
+
+build() {
+  cd jornada7xx-linux-master/linux-$version
+
+  # use short version number (e.g 3.16.81)
+  sed 's/EXTRAVERSION =.*/EXTRAVERSION =/' -i Makefile
+
+  # export some variables when actually cross-compiling
+  if ! grep -q 'HP Jornada' /proc/cpuinfo; then
+    export ARCH=arm CROSS_COMPILE=arm-linux-gnu-
+  fi
+
+  # zImage
+  make mrproper
+  cp $SRC/config-$version .config
+  make zImage
+  install -d -m 0755 $PKG/boot
+  install -m 0644 arch/arm/boot/zImage $PKG/boot/zImage-$version 
+
+  # config
+  install -m 0644 .config $PKG/boot/config-$version
+
+  # modules and firmware
+  make modules
+  install -d -m 0755 $PKG/lib/{firmware,modules}
+  make modules_install INSTALL_MOD_PATH=$PKG
+  rm -f $PKG/lib/modules/*/{source,build}
+}
