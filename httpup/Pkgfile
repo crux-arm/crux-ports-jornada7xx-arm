@@ -1,0 +1,17 @@
+# Description: One way sync over http
+# URL: https://github.com/winkj/httpup
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+# Arch Maintainer: CRUX-ARM System Team, devel at crux-arm dot nu
+# Depends on: curl
+
+name=httpup
+version=0.5.1
+release=1
+source=(https://crux.nu/files/$name-$version.tar.xz httpup)
+
+build() {
+ cd $name-$version
+ make
+ make DESTDIR=$PKG prefix=/usr mandir=/usr/share/man install
+ install -D -m 755 $SRC/httpup $PKG/etc/ports/drivers/httpup
+}
