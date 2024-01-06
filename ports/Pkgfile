@@ -1,0 +1,19 @@
+# Description: CRUX ports system tools
+# URL: https://crux.nu
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+# Arch Maintainer: CRUX-ARM System Team, devel at crux-arm dot nu
+
+name=ports
+version=1.6
+release=3
+source=(https://crux.nu/files/tools/ports/$name-$version.tar.gz \
+        core.rsync opt.rsync xorg.rsync contrib.rsync.inactive \
+        jornada7xx-arm.httpup)
+
+build () {
+  cd $name-$version
+  make
+  make DESTDIR=$PKG MANDIR=/usr/share/man install
+
+  install -m 0644 $SRC/*.{httpup,rsync,inactive} $PKG/etc/ports
+}
