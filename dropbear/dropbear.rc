@@ -1,0 +1,42 @@
+#!/bin/sh
+#
+# /etc/rc.d/dropbear: start/stop dropbear ssh daemon
+#
+
+PROG=/usr/sbin/dropbear
+PID=/var/run/dropbear.pid
+
+CONV=/usr/bin/dropbearconvert
+KEYG=/usr/bin/dropbearkey
+
+RSA=/etc/dropbear/dropbear_rsa_host_key
+DSS=/etc/dropbear/dropbear_dss_host_key
+ECDSA=/etc/dropbear/dropbear_ecdsa_host_key
+ED25519=/etc/dropbear/dropbear_ed25519_host_key
+
+create_keys() {
+ [ -f $RSA ]     || $KEYG -t rsa -s 4096 -f $RSA
+ [ -f $DSS ]     || $KEYG -t dss -f $DSS
+ [ -f $ECDSA ]   || $KEYG -t ecdsa -s 521 -f $ECDSA
+ [ -f $ED25519 ] || $KEYG -t ed25519 -f $ED25519
+}
+
+case $1 in
+start)
+  create_keys
+  $PROG -P $PID
+	;;
+stop)
+	killall -q $PROG || kill -9 $(cat $PID)
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

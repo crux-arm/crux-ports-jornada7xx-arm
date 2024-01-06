@@ -1,0 +1,29 @@
+# Description: A tool for transfering files with URL syntax
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+# Arch Maintainer: CRUX-ARM System Team, devel at crux-arm dot nu
+# URL: https://curl.haxx.se 
+# Depends on: openssl zlib
+
+name=curl
+version=8.5.0
+release=1
+source=(https://curl.haxx.se/download/$name-$version.tar.gz)
+
+build() {
+  cd $name-$version
+
+  ./configure \
+    --prefix=/usr \
+    --enable-threaded-resolver \
+    --with-ca-bundle=/etc/ssl/cert.pem \
+    --with-openssl \
+    --disable-ldap{,s} \
+    --without-brotli \
+    --without-libidn2 \
+    --without-libpsl \
+    --without-librtmp
+
+  make
+  make DESTDIR=$PKG install
+  make -C docs/libcurl DESTDIR=$PKG install
+}
