@@ -4,8 +4,11 @@ CRUX-ARM ports overlay for HP Jornada 710/720/728
 
 > IMPORTANT NOTE:
 >
-> Native compilation to build these ports is discouraged given the limitations of this device.
-> Instead it is preferable to use cross-compilation for target arm-linux-gnu
+> Native compilation to build some ports of this repository is discouraged given the limitations of this device.
+> Instead it is preferable to use cross-compilation.
+>
+> For this reason you may find some ports which the Pkgfile file contains logic for detecting native or cross compilation.
+>
 
 To use these ports, download the `jornada7xx-arm.httpup` file to `/etc/ports`:
 ```
