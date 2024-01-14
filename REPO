@@ -27,9 +27,9 @@ f:3232ead1a2938c75fce1c38c0b302a4b:pkgutils/Pkgfile
 f:0e1717fd1eeb62d8fce0c23682e9b337:pkgutils/.footprint
 f:df1574971bb329f167acf8b19b092888:pkgutils/.md5sum
 f:e7371ba499ed433b1b6bd57517402ca3:kernel-jornada7xx/Pkgfile
-f:7472c5b390c0313040b9848d6a39ed13:kernel-jornada7xx/.footprint
-f:e00c6dff2ea0eb25d495eb2f4e7759e0:kernel-jornada7xx/config-3.16.81
-f:eb0fd480f7d9311042749d124a6b0938:kernel-jornada7xx/.md5sum
+f:6dcc490953823743b55c4e8e22f831cc:kernel-jornada7xx/.footprint
+f:cba7970a1530be414f838149555a5b38:kernel-jornada7xx/config-3.16.81
+f:144135bb4371b0266bd2c446a34f4f4c:kernel-jornada7xx/.md5sum
 f:5660d0726f351aeb2c51ec945d76c4ed:libarchive/Pkgfile
 f:214c8b8fde031017cdf0973573ffb43f:libarchive/.footprint
 f:c651b906fafa6a30748217b8fe79840e:libarchive/.md5sum
